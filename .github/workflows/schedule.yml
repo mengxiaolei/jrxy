@@ -1,0 +1,29 @@
+name: schedule
+
+on:
+  schedule:
+    - cron: "0 9,18 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      TZ: Asia/Shanghai
+
+    steps:
+      - name: Checkout actions
+        uses: actions/checkout@v2
+
+      - name: Setup Python 3.8
+        uses: actions/setup-python@master
+        with:
+          python-version: 3.8
+
+      - name: Bulit Python
+        run: |
+          pip install -r requirements.txt
+
+      - name: Complete App
+        run: |
+          python DailyCp.py ${{ secrets.SCH }} ${{ NUM }} ${{ PAS }} ${{ ADDR }} ./formdb ${{ SERVERJ }}
