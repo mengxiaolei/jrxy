@@ -27,4 +27,5 @@ jobs:
       - name: Complete App
         run: |
           pwd
-          python DailyCp.py ${{ secrets.SCH }} ${{ secrets.NUM }} ${{ secrets.PAS }} ${{ secrets.ADDR }} ./formdb ${{ secrets.SERVERJ }}
+          ll
+          python3 DailyCP.py ${{ secrets.SCH }} ${{ secrets.NUM }} ${{ secrets.PAS }} ${{ secrets.ADDR }} formdb ${{ secrets.SERVERJ }}
